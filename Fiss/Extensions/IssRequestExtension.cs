@@ -142,9 +142,13 @@ public static class IssRequestExtension
                 v => v.Value,
                     v => v.Key.Equals("Total"))));
 
-        var max = totals.Cast<long>()
-            .OrderByDescending(i => i).FirstOrDefault(0L);
+        
 
+#if NET6_0_OR_GREATER
+        long max = totals.Cast<long>().OrderByDescending(i => i).FirstOrDefault(0L);
+#else
+        long max = totals.Cast<long>().OrderByDescending(i => i).FirstOrDefault();
+#endif
         return new CursorRequest<TResult>(request, index, max, pageSize, converter, fetch);
     }
 
@@ -168,6 +172,8 @@ public static class IssRequestExtension
     public static IDictionary<string, Table> ToResponse(this IIssRequest request) =>
         request.ToResponse<IssResponse>().Tables;
 
+    
+#if NET6_0_OR_GREATER
     /// <summary>
     /// Преобразует ответ основой которого является <see cref="IssResponse"/> 
     /// от ISS Moex в динамический объект.
@@ -176,17 +182,20 @@ public static class IssRequestExtension
     {
         var response = request.ToResponse();
 
-        dynamic tables = new ExpandoObject();
+        dynamic tables = new System.Dynamic.ExpandoObject();
         var dictionary = tables as IDictionary<string, object>;
 
-        foreach (var (name, table) in response)
+        foreach (var pair in response)
         {
-            dynamic @object = new ExpandoObject();
+            var name = pair.Key;
+            var table = pair.Value;
+            
+            dynamic @object = new System.Dynamic.ExpandoObject();
             @object.Columns = table.Headers;
 
             @object.Rows = table.Rows.Select(row =>
             {
-                dynamic values = new ExpandoObject();
+                dynamic values = new System.Dynamic.ExpandoObject();
                 var prop = values as IDictionary<string, object>;
                 _ = row.Values.ToLookup(item => prop[item.Key] = item.Value);
 
@@ -198,6 +207,7 @@ public static class IssRequestExtension
 
         return tables;
     }
+#endif
 
     /// <summary>
     /// Собирает из 
