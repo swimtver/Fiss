@@ -1,4 +1,7 @@
-﻿namespace Fiss.Extensions;
+﻿using System;
+using System.ComponentModel;
+
+namespace Fiss.Extensions;
 
 public  static class EnumExtensions
 {

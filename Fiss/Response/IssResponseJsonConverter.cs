@@ -1,4 +1,11 @@
-﻿namespace Fiss.Response;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using Fiss.Extensions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+
+namespace Fiss.Response;
 
 /// <summary>
 /// Конвертер для десериализаци ответа от ISS Moex в IssResponse

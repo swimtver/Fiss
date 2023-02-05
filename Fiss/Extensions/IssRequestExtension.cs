@@ -1,4 +1,16 @@
-﻿namespace Fiss.Extensions;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net.Http;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
+using Fiss.Enums;
+using Fiss.Query;
+using Fiss.Request;
+using Fiss.Response;
+using Newtonsoft.Json;
+
+namespace Fiss.Extensions;
 
 /// <summary>
 /// Статическая обертка для IIssRequst 

@@ -1,4 +1,7 @@
-﻿namespace Fiss.Request;
+﻿using System.Collections.Generic;
+using Fiss.Enums;
+
+namespace Fiss.Request;
 
 public interface IIssRequest
 {

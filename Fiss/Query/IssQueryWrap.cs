@@ -1,4 +1,6 @@
 ﻿#nullable enable
+using System.Collections.Generic;
+
 namespace Fiss.Query;
 
 public record IssQueryWrap(

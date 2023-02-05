@@ -1,4 +1,7 @@
-﻿namespace Fiss.Extensions;
+﻿using System;
+using System.Globalization;
+
+namespace Fiss.Extensions;
 
 public static class StringExtensions
 {

@@ -1,4 +1,9 @@
-﻿namespace Fiss.Request;
+﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using Fiss.Enums;
+
+namespace Fiss.Request;
 
 /// <summary>
 /// Обертка для IIssRequst 

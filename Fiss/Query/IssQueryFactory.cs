@@ -1,4 +1,10 @@
-﻿namespace Fiss.Query;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using Fiss.Enums.Queries;
+using Fiss.Extensions;
+
+namespace Fiss.Query;
 
 public static class IssQueryFactory
 {

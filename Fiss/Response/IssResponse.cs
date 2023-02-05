@@ -1,4 +1,7 @@
-﻿namespace Fiss.Response;
+﻿using System.Collections.Generic;
+using Newtonsoft.Json;
+
+namespace Fiss.Response;
 
 /// <summary>
 /// Объект который предаставляет из себя

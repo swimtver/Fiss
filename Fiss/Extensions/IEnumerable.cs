@@ -1,4 +1,8 @@
-﻿namespace Fiss.Extensions;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace Fiss.Extensions;
 
 public static class IEnumerableExtensions
 {
